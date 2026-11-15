@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Faiz Alkholifi – Profil Pribadi</title>
+<meta name="description" content="Profil dan portofolio Muhammad Faiz Alkholifi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fb; --bg2:#e6edf8; --text:#0f1b2d; --muted:#51607a;
+  --glass:rgba(255,255,255,.62); --border:rgba(15,27,45,.10);
+  --a1:#0e9f8e; --a2:#3b6cf5; --on-accent:#ffffff;
+  --grad:linear-gradient(135deg,var(--a1),var(--a2));
+  --shadow:0 10px 30px rgba(20,40,80,.10); --shadow-h:0 18px 40px rgba(20,40,80,.18);
+  --radius:20px; --t:.3s ease;
+}
+[data-theme="dark"]{
+  --bg:#0b1220; --bg2:#111b2f; --text:#e8eefb; --muted:#9db0cf;
+  --glass:rgba(22,33,56,.62); --border:rgba(255,255,255,.10);
+  --a1:#2dd4bf; --a2:#7c9cff; --on-accent:#06101f;
+  --shadow:0 10px 30px rgba(0,0,0,.35); --shadow-h:0 18px 40px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:background var(--t),color var(--t);overflow-x:hidden}
+body::before,body::after{content:"";position:fixed;z-index:-1;width:46vmax;height:46vmax;border-radius:50%;filter:blur(90px);opacity:.28;background:var(--grad)}
+body::before{top:-18vmax;left:-14vmax} body::after{bottom:-20vmax;right:-14vmax;opacity:.2}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--a2);outline-offset:3px;border-radius:8px}
+.container{width:min(1100px,92%);margin-inline:auto}
+section{padding:5rem 0}
+h1{font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:700;margin-bottom:.4rem}
+h3{font-size:1.15rem;font-weight:600}
+.sub{color:var(--muted);margin-bottom:2.5rem;max-width:60ch}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform var(--t),box-shadow var(--t)}
+
+/* Buttons (shared shape & theme colors) */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:999px;font:600 .95rem 'Poppins',sans-serif;text-decoration:none;cursor:pointer;border:2px solid transparent;transition:transform var(--t),box-shadow var(--t),background var(--t),color var(--t)}
+.btn-primary{background:var(--grad);color:var(--on-accent);box-shadow:var(--shadow)}
+.btn-outline{background:transparent;color:var(--text);border-color:var(--a2)}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.btn-outline:hover{background:var(--grad);color:var(--on-accent);border-color:transparent}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:800;font-size:1.2rem;text-decoration:none}
+.nav ul{display:flex;gap:.3rem;list-style:none;align-items:center}
+.nav a.link{display:block;padding:.45rem .9rem;border-radius:999px;text-decoration:none;font-size:.92rem;font-weight:500;color:var(--muted);transition:var(--t)}
+.nav a.link:hover,.nav a.link.active{color:var(--text);background:var(--glass);box-shadow:inset 0 0 0 1px var(--border)}
+.nav a.link.active{color:var(--a2)}
+[data-theme="dark"] .nav a.link.active{color:var(--a1)}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:var(--glass);color:var(--text);cursor:pointer;display:grid;place-items:center;transition:var(--t)}
+.icon-btn:hover{transform:rotate(15deg) scale(1.06)}
+.icon-btn svg{width:20px;height:20px}
+.sun{display:none}[data-theme="dark"] .sun{display:block}[data-theme="dark"] .moon{display:none}
+.menu-btn{display:none}
+.tools{display:flex;gap:.5rem;align-items:center}
+@media(max-width:820px){
+  .menu-btn{display:grid}
+  .nav ul{position:absolute;top:68px;left:0;right:0;flex-direction:column;padding:1rem 4%;background:var(--bg);border-bottom:1px solid var(--border);display:none}
+  .nav ul.open{display:flex}
+}
+
+/* Pages */
+.page{display:none}.page.show{display:block;animation:pageIn .5s ease}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Hero */
+.hero{min-height:calc(100vh - 68px);display:flex;align-items:center;padding:3rem 0}
+.hero .container{display:grid;gap:2.5rem;align-items:center;justify-items:center;text-align:center}
+.avatar{width:min(240px,60vw);aspect-ratio:1;border-radius:50%;padding:6px;background:var(--grad);box-shadow:var(--shadow-h)}
+.avatar svg,.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.typing{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:600;min-height:2.2rem;margin:.6rem 0}
+.cursor{display:inline-block;width:2px;height:1.2em;background:var(--a1);margin-left:3px;vertical-align:-.2em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{color:var(--muted);max-width:56ch;margin:0 auto 1.8rem}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.story-cta{margin-top:2.2rem}
+@media(min-width:900px){
+  .hero .container{grid-template-columns:1fr auto;text-align:left;justify-items:start}
+  .hero .avatar{order:2;width:300px}.hero p.lead{margin-left:0}.actions{justify-content:flex-start}
+}
+
+/* About */
+.grid3{display:grid;gap:1.2rem}
+@media(min-width:700px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.about{display:grid;gap:2rem}
+@media(min-width:900px){.about{grid-template-columns:1.3fr 1fr}}
+.info{padding:1.4rem}.info small{color:var(--muted);display:block}
+.info-list{display:grid;gap:1rem}
+.info{padding:1.3rem 1.5rem}.info strong{display:block}
+
+/* Skills */
+.skills{display:grid;gap:1.2rem}
+@media(min-width:800px){.skills{grid-template-columns:1fr 1fr;gap:1.6rem 3rem}}
+.skill-head{display:flex;justify-content:space-between;font-weight:500;font-size:.95rem;margin-bottom:.4rem}
+.bar{height:10px;border-radius:99px;background:var(--bg2);overflow:hidden;border:1px solid var(--border)}
+.bar span{display:block;height:100%;width:0;border-radius:99px;background:var(--grad);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.chip{padding:.35rem .9rem;border-radius:99px;font-size:.85rem;background:var(--glass);border:1px solid var(--border)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:2rem;display:grid;gap:1.5rem}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--grad)}
+.tl-item{position:relative;padding:1.3rem 1.5rem}
+.tl-item::before{content:"";position:absolute;left:-2.05rem;top:1.6rem;width:17px;height:17px;border-radius:50%;background:var(--bg);border:4px solid var(--a2)}
+.tl-item time{font-size:.82rem;color:var(--a2);font-weight:600}
+[data-theme="dark"] .tl-item time{color:var(--a1)}
+.tl-item p{color:var(--muted);font-size:.95rem}
+
+/* Projects */
+.projects{display:grid;gap:1.4rem}
+@media(min-width:640px){.projects{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.projects{grid-template-columns:repeat(3,1fr)}}
+.card{padding:1.6rem;display:flex;flex-direction:column;gap:.7rem}
+.card:hover,.story:hover{transform:translateY(-8px);box-shadow:var(--shadow-h)}
+.card p{color:var(--muted);font-size:.93rem;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{font-size:.75rem;padding:.2rem .7rem;border-radius:99px;background:var(--bg2);border:1px solid var(--border)}
+.card a.more{font-weight:600;font-size:.9rem;color:var(--a2);text-decoration:none}
+[data-theme="dark"] .card a.more{color:var(--a1)}
+.card a.more:hover{text-decoration:underline}
+
+/* Contact */
+.contact{display:grid;gap:2rem}
+@media(min-width:900px){.contact{grid-template-columns:1.2fr 1fr}}
+form{padding:1.8rem;display:grid;gap:1.1rem}
+label{font-weight:500;font-size:.9rem;display:block;margin-bottom:.3rem}
+input,textarea{width:100%;padding:.8rem 1rem;border-radius:14px;border:1px solid var(--border);background:var(--bg);color:var(--text);font:inherit;transition:border-color var(--t)}
+input:focus,textarea:focus{border-color:var(--a2)}
+textarea{min-height:130px;resize:vertical}
+.err{color:#d6336c;font-size:.82rem;min-height:1.1rem;display:block}
+[data-theme="dark"] .err{color:#ff8fab}
+input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#d6336c}
+.success{display:none;padding:1rem 1.2rem;border-radius:14px;background:var(--grad);color:var(--on-accent);font-weight:600}
+.success.show{display:block}
+.socials{display:grid;gap:.8rem;align-content:start}
+.social{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;text-decoration:none;font-weight:500}
+.social:hover{transform:translateX(6px);box-shadow:var(--shadow-h)}
+.social svg{width:24px;height:24px;flex:none}
+
+/* Story page */
+.story-hero{padding:4rem 0 1rem}
+.stories{display:grid;gap:1.6rem;padding-bottom:2rem}
+@media(min-width:800px){.stories{grid-template-columns:1fr 1fr}.story.wide{grid-column:1/-1}}
+.story{padding:1.8rem}
+.story .when{font-size:.82rem;font-weight:600;color:var(--a2)}
+[data-theme="dark"] .story .when{color:var(--a1)}
+.story h3{margin:.3rem 0 .6rem;font-size:1.3rem}
+.story p{color:var(--muted)}
+.story blockquote{margin-top:1rem;padding-left:1rem;border-left:4px solid var(--a2);font-style:italic}
+
+footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.9rem}
+footer .container{display:flex;flex-direction:column;gap:1rem;align-items:center}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Lewati ke konten</a>
+
+<header>
+  <div class="container nav">
+    <a href="#beranda" class="logo grad-text" data-go="main:beranda">Faiz Alkholifi</a>
+    <nav aria-label="Navigasi utama" style="display:contents">
+      <ul id="menu">
+        <li><a class="link" href="#beranda" data-go="main:beranda">Beranda</a></li>
+        <li><a class="link" href="#tentang" data-go="main:tentang">Tentang</a></li>
+        <li><a class="link" href="#keahlian" data-go="main:keahlian">Keahlian</a></li>
+        <li><a class="link" href="#pengalaman" data-go="main:pengalaman">Pengalaman</a></li>
+        <li><a class="link" href="#proyek" data-go="main:proyek">Proyek</a></li>
+        <li><a class="link" href="#kontak" data-go="main:kontak">Kontak</a></li>
+        <li><a class="link" href="#kisah" data-go="story" id="navStory">Kisah Saya</a></li>
+      </ul>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="theme" aria-label="Ganti mode gelap/terang" type="button">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="menu" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HALAMAN 1 ============ -->
+<div class="page show" id="page-main">
+  <section class="hero" id="beranda">
+    <div class="container">
+      <div class="avatar reveal">
+        <img src="WhatsApp image 2026-11-15 at 11.15.28.jpeg" alt="Foto Muhammad Faiz Alkholifi"> -->
+        <svg role="img" aria-label="Foto profil Muhammad Faiz Alkholifi (placeholder inisial)" viewBox="0 0 200 200">
+          <rect width="200" height="200" fill="var(--bg2)"/>
+          <circle cx="100" cy="78" r="36" fill="var(--a2)" opacity=".85"/>
+          <path d="M30 200c0-44 31-72 70-72s70 28 70 72z" fill="var(--a1)" opacity=".85"/>
+        </svg>
+      </div>
+      <div class="reveal">
+        <h1>Muhammad Faiz<br><span class="grad-text">Alkholifi</span></h1>
+        <p class="typing" aria-live="off"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
+        <p class="lead">Halo, saya Faiz. Saya suka membangun hal-hal yang berguna dan enak dilihat, sambil terus belajar dan berbagi. Silakan lihat siapa saya dan apa yang sudah saya kerjakan.</p>
+        <div class="actions">
+          <a href="#kontak" class="btn btn-primary" data-go="main:kontak">Hubungi Saya</a>
+          <a href="#proyek" class="btn btn-outline" data-go="main:proyek">Lihat Proyek</a>
+        </div>
+        <div class="story-cta">
+          <a href="#kisah" class="btn btn-outline" data-go="story">Kisah Saya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="container">
+      <h2 class="reveal">Tentang Saya</h2>
+      <p class="sub reveal">Sedikit cerita tentang latar belakang dan apa yang saya pedulikan.</p>
+      <div class="about">
+        <div class="reveal">
+          <p>Saya Muhammad Faiz Alkholifi, seorang pembelajar yang tertarik pada teknologi, desain, dan hal-hal yang membuat hidup orang lebih mudah. Saya senang memecahkan masalah dengan langkah kecil yang konsisten.</p>
+          <p style="margin-top:1rem;color:var(--muted)">Ubah paragraf ini dengan bio Anda sendiri: apa yang Anda kerjakan, nilai yang Anda pegang, dan hal yang sedang Anda tuju.</p>
+        </div>
+        <div class="info-list">
+          <div class="glass info reveal"><small>Lokasi</small><strong>Kampar, Riau, Indonesia</strong></div>
+          <div class="glass info reveal"><small>Pendidikan</small><strong>SMKN 1 BANGKINANG</strong></div>
+          <div class="glass info reveal"><small>Minat</small><strong>Teknologi, desain, membaca</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="keahlian">
+    <div class="container">
+      <h2 class="reveal">Keahlian</h2>
+      <p class="sub reveal">Kemampuan yang sedang saya asah. Angka bisa Anda sesuaikan.</p>
+      <div class="skills" id="skills"></div>
+      <div class="chips reveal" aria-label="Keahlian lainnya">
+        <span class="chip">Git</span><span class="chip">Figma</span><span class="chip">Komunikasi</span><span class="chip">Kerja tim</span><span class="chip">Manajemen waktu</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="pengalaman">
+    <div class="container">
+      <h2 class="reveal">Pengalaman &amp; Pendidikan</h2>
+      <p class="sub reveal">Perjalanan saya sejauh ini.</p>
+      <div class="timeline">
+        <article class="glass tl-item reveal"><time>2024 – Sekarang</time><h3> SMKN 1 BANGKINANG</h3><p>Mendalami pemrograman web dan desain antarmuka. Ganti dengan institusi Anda.</p></article>
+        <article class="glass tl-item reveal"><time>2023</time>2026<h3>Mts PPMTI TG. BERULAK</h3><p>masih mondok di pondok saya b.</p></article>
+        <article class="glass tl-item reveal"><time>2017</time>2023<h3>SDN 006 Limau manis</h3><p>baru belajar menggunakan nya.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyek">
+    <div class="container">
+      <h2 class="reveal">Proyek</h2>
+      <p class="sub reveal">Beberapa hasil kerja pilihan. Ganti judul, deskripsi, dan tautan dengan proyek asli Anda.</p>
+      <div class="projects">
+        <article class="glass card reveal"><h3>Website Portofolio</h3><p>Situs profil pribadi responsif dengan mode gelap dan animasi halus.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="more" href="#" aria-label="Lihat detail Website Portofolio">Lihat proyek</a></article>
+        <article class="glass card reveal"><h3>Aplikasi Catatan</h3><p>Aplikasi pencatat sederhana dengan penyimpanan lokal dan pencarian cepat.</p><div class="tags"><span>JavaScript</span><span>LocalStorage</span></div><a class="more" href="#" aria-label="Lihat detail Aplikasi Catatan">Lihat proyek</a></article>
+        <article class="glass card reveal"><h3>Landing Page Usaha</h3><p>Halaman promosi untuk usaha kecil dengan tampilan bersih dan cepat dimuat.</p><div class="tags"><span>HTML</span><span>CSS</span><span>Desain</span></div><a class="more" href="#" aria-label="Lihat detail Landing Page Usaha">Lihat proyek</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="container">
+      <h2 class="reveal">Kontak</h2>
+      <p class="sub reveal">Punya ide, pertanyaan, atau ajakan kolaborasi? Kirim pesan.</p>
+      <div class="contact">
+        <form class="glass reveal" id="form" novalidate>
+          <div><label for="nama">Nama</label><input id="nama" name="nama" type="text" autocomplete="name" required aria-describedby="e-nama"><span class="err" id="e-nama"></span></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><span class="err" id="e-email"></span></div>
+          <div><label for="pesan">Pesan</label><textarea id="pesan" name="pesan" required aria-describedby="e-pesan"></textarea><span class="err" id="e-pesan"></span></div>
+          <button class="btn btn-primary" type="submit" style="justify-self:start">Kirim Pesan</button>
+          <div class="success" id="ok" role="status">Terima kasih! Pesan Anda sudah terkirim (simulasi).</div>
+        </form>
+        <div class="socials reveal">
+          <a class="glass social" href="https://github.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.4 1 .1-.8.4-1.300.7-1.600-2.600-.3-5.300-1.300-5.300-5.700 0-1.300.5-2.300 1.200-3.100-.1-.3-.5-1.500.1-3.100 0 0 1-.3 3.200 1.200a11 11 0 0 1 5.800 0c2.200-1.500 3.200-1.200 3.200-1.200.6 1.600.2 2.800.1 3.100.8.800 1.200 1.800 1.200 3.100 0 4.400-2.700 5.400-5.300 5.700.4.400.8 1.100.8 2.200v3.200c0 .3.200.7.800.6A11.500 11.500 0 0 0 12 .5z"/></svg>GitHub</a>
+          <a class="glass social" href="https://linkedin.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zM9.500 9.500h3.800v1.500c.6-1 1.900-1.800 3.700-1.800 3.700 0 4.500 2.400 4.500 5.600v5.700h-4v-5c0-1.300 0-2.900-1.800-2.900s-2.100 1.400-2.100 2.800v5.100h-4z"/></svg>LinkedIn</a>
+          <a class="glass social" href="https://instagram.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r="1" fill="currentColor"/></svg>Instagram</a>
+          <a class="glass social" href="mailto:email@contoh.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ HALAMAN 2 ============ -->
+<div class="page" id="page-story">
+  <section class="story-hero" id="kisah" style="padding-bottom:1rem">
+    <div class="container">
+      <h1>Kisah <span class="grad-text">Saya</span></h1>
+      <p class="sub" style="margin-top:1rem">Potongan perjalanan yang membentuk cara saya berpikir dan bekerja. Ganti teks di bawah dengan kisah asli Anda.</p>
+    </div>
+  </section>
+  <section style="padding-top:1rem">
+    <div class="container">
+      <div class="stories">
+        <article class="glass story reveal"><span class="when">Awal mula</span><h3>Rasa penasaran pertama</h3><p>Ceritakan momen pertama kali Anda tertarik pada bidang yang Anda tekuni: apa yang terjadi, siapa yang ada di sana, dan apa yang Anda rasakan.</p></article>
+        <article class="glass story reveal"><span class="when">Titik belajar</span><h3>Gagal, lalu mencoba lagi</h3><p>Tulis satu kegagalan yang mengajarkan sesuatu. Detail kecil membuat kisah terasa nyata dan dekat dengan pembaca.</p></article>
+        <article class="glass story wide reveal"><span class="when">Hari ini</span><h3>Yang sedang saya perjuangkan</h3><p>Jelaskan tujuan Anda sekarang dan alasan di baliknya. Bagian ini bisa lebih panjang dan reflektif dibanding kisah lainnya.</p><blockquote>Tambahkan kutipan atau prinsip hidup favorit Anda di sini.</blockquote></article>
+      </div>
+      <div class="actions" style="margin-top:1.5rem">
+        <a href="#beranda" class="btn btn-outline" data-go="main:beranda">Kembali ke Beranda</a>
+        <a href="#kontak" class="btn btn-primary" data-go="main:kontak">Hubungi Saya</a>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; <span id="year"></span> Muhammad Faiz Alkholifi. Hak cipta dilindungi.</p>
+    <button class="btn btn-outline" id="top" type="button">Kembali ke atas</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const root=document.documentElement;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Theme */
+  const get=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+  const set=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+  const saved=get('theme');
+  root.dataset.theme=saved||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  $('#theme').onclick=()=>{const n=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=n;set('theme',n)};
+
+  /* Mobile menu */
+  const burger=$('#burger'),menu=$('#menu');
+  const closeMenu=()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded','false')};
+  burger.onclick=()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)};
+
+  /* Skills */
+  const skills=[['HTML & CSS',90],['JavaScript',78],['Desain UI',72],['Git & GitHub',70],['Problem solving',85],['Komunikasi',88]];
+  $('#skills').innerHTML=skills.map(([n,v])=>`<div class="reveal"><div class="skill-head"><span>${n}</span><span>${v}%</span></div><div class="bar" role="progressbar" aria-label="${n}" aria-valuenow="${v}" aria-valuemin="0" aria-valuemax="100"><span data-w="${v}"></span></div></div>`).join('');
+
+  /* Reveal + skill bars */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('in');
+    $$('.bar span',e.target).forEach(b=>b.style.width=b.dataset.w+'%');
+    io.unobserve(e.target);
+  }),{threshold:.15});
+  const observe=()=>$$('.reveal:not(.in)').forEach(el=>io.observe(el));
+  observe();
+
+  /* Typing effect */
+  const roles=['Web Developer','UI Designer','Pembelajar Seumur Hidup','Pemecah Masalah'];
+  const t=$('#typed');
+  if(reduce){t.textContent=roles.join(' • ')}
+  else{
+    let r=0,c=0,del=false;
+    (function tick(){
+      const w=roles[r];
+      t.textContent=w.slice(0,c);
+      let d=del?40:85;
+      if(!del&&c===w.length){del=true;d=1400}
+      else if(del&&c===0){del=false;r=(r+1)%roles.length;d=350}
+      else c+=del?-1:1;
+      setTimeout(tick,d);
+    })();
+  }
+
+  /* Two-page navigation */
+  const pages={main:$('#page-main'),story:$('#page-story')};
+  let current='main';
+  function show(p){
+    if(p===current)return;
+    current=p;
+    pages.main.classList.toggle('show',p==='main');
+    pages.story.classList.toggle('show',p==='story');
+    $('#navStory').classList.toggle('active',p==='story');
+    observe(); setActive();
+  }
+  function go(spec,push=true){
+    closeMenu();
+    const [p,id]=spec.includes(':')?spec.split(':'):[spec,null];
+    show(p);
+    if(p==='story'){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});if(push)history.pushState(null,'','#kisah');document.title='Kisah Saya – Muhammad Faiz Alkholifi'}
+    else{
+      document.title='Muhammad Faiz Alkholifi – Profil Pribadi';
+      requestAnimationFrame(()=>{const el=$('#'+id);el&&el.scrollIntoView({behavior:reduce?'auto':'smooth'});if(push)history.pushState(null,'','#'+id)});
+    }
+  }
+  $$('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();go(a.dataset.go)}));
+  function fromHash(){
+    const h=location.hash.slice(1);
+    if(h==='kisah')go('story',false);
+    else if(h&&$('#page-main #'+h))go('main:'+h,false);
+    else if(current!=='main'){show('main');window.scrollTo(0,0)}
+  }
+  addEventListener('popstate',fromHash);
+
+  /* Scroll spy */
+  const links=$$('.nav a.link[data-go^="main:"]');
+  const ids=links.map(l=>l.dataset.go.split(':')[1]);
+  function setActive(){
+    if(current!=='main'){links.forEach(l=>l.classList.remove('active'));return}
+    let cur=ids[0];
+    ids.forEach(id=>{const el=$('#'+id);if(el&&el.getBoundingClientRect().top<=window.innerHeight*.35)cur=id});
+    links.forEach(l=>l.classList.toggle('active',l.dataset.go==='main:'+cur));
+  }
+  const spy=new IntersectionObserver(()=>setActive(),{rootMargin:'-30% 0px -60% 0px'});
+  ids.forEach(id=>spy.observe($('#'+id)));
+  addEventListener('scroll',setActive,{passive:true});
+  setActive();
+
+  /* Form validation */
+  const f=$('#form'),ok=$('#ok');
+  const rules={
+    nama:v=>v.trim().length<2?'Isi nama minimal 2 karakter.':'',
+    email:v=>!v.trim()?'Isi alamat email.':(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'':'Format email belum benar, contoh: nama@email.com.'),
+    pesan:v=>v.trim().length<10?'Tulis pesan minimal 10 karakter.':''
+  };
+  function check(name){
+    const el=f.elements[name],msg=rules[name](el.value);
+    $('#e-'+name).textContent=msg;
+    el.setAttribute('aria-invalid',msg?'true':'false');
+    return !msg;
+  }
+  Object.keys(rules).forEach(n=>f.elements[n].addEventListener('input',()=>{ok.classList.remove('show');if(f.elements[n].getAttribute('aria-invalid'))check(n)}));
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const res=Object.keys(rules).map(check);
+    if(res.every(Boolean)){f.reset();Object.keys(rules).forEach(n=>f.elements[n].removeAttribute('aria-invalid'));ok.classList.add('show')}
+    else f.querySelector('[aria-invalid="true"]').focus();
+  });
+
+  /* Footer */
+  $('#year').textContent=new Date().getFullYear();
+  $('#top').onclick=()=>window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+
+  fromHash();
+})();
+</script>
+</body>
+</html>
